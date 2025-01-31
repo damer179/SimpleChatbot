@@ -49,20 +49,4 @@ def message_gpt(prompt):
     )
     return completion.choices[0].message.content
 
-def shout(text):
-    print(f"Shout has been called with input {text}")
-    return text.upper()
-
-# The simplicty of gradio. This might appear in "light mode" - I'll show you how to make this in dark mode later.
-
-# And now - changing the function from "shout" to "message_gpt"
-
 gr.Interface(fn=message_gpt, inputs="textbox", outputs="textbox", flagging_mode="never").launch(share=True)
-
-# view = gr.Interface(
-#     fn=message_gpt,
-#     inputs=[gr.Textbox(label="Your message:", lines=6)],
-#     outputs=[gr.Textbox(label="Response:", lines=8)],
-#     flagging_mode="never"
-# )
-# view.launch()
